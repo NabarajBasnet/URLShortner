@@ -22,11 +22,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .logo h1 {
-    color: #00ad51;
     font-size: 32px;
+}
+
+.logo h1 a {
+    text-decoration: none;
+    color: #00ad51;
 }
 
 .logo i {

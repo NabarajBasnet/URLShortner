@@ -13,7 +13,9 @@
     <header>
         <div class="logo">
             <i class="fas fa-link"></i>
-            <h1>Shortly</h1>
+            <h1>
+                <a href="/">Shortly</a>
+            </h1>
         </div>
     </header>
 
@@ -21,8 +23,10 @@
         <form action="/shorten" method="POST">
             <div class="form-group">
                 <label for="longUrl">Enter your long URL:</label>
-                <input type="url" id="longUrl" name="longUrl" placeholder="Enter your long URL here" required>
-                <button type="submit">Shorten URL</button>
+                <div id="inputbtn">
+                    <input type="url" id="longUrl" name="longUrl" placeholder="Enter your long URL here" required>
+                    <button type="submit">Shorten URL</button>
+                </div>
             </div>
         </form>
 
