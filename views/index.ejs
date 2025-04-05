@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shortly</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>Shortly</h1>
+    <form action="/shorten" method="POST">
+        <input type="url" name="longUrl" placeholder="Enter your long URL" required>
+        <button type="submit">Shorten</button>
+    </form>
+
+    <% if (shortUrl) { %>
+        <div class="result-container">
+            <p class="message">Your shortened URL:</p>
+            <a href="<%= shortUrl %>" class="short-url" target="_blank">
+                <%= shortUrl %>
+            </a>
+            <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">Copy</button>
+        </div>
+        <% } %>
+
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => alert('URL copied to clipboard!'))
+                        .catch(err => console.error('Copy failed:', err));
+                }
+            </script>
+</body>
+
+</html>
