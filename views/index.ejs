@@ -3,71 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shortly - URL Shortener</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Shortly</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <i class="fas fa-link"></i>
-            <h1>
-                <a href="/">Shortly</a>
-            </h1>
-        </div>
-    </header>
 
-    <div class="shortener-container">
-        <form action="/shorten" method="POST">
-            <div class="form-group">
-                <label for="longUrl">Enter your long URL:</label>
-                <div id="inputbtn">
-                    <input type="url" id="longUrl" name="longUrl" placeholder="Enter your long URL here" required>
-                    <button type="submit">Shorten URL</button>
+    <%- include('partials/header') %>
+
+        <main>
+            <form action="/shorten" method="POST">
+                <input type="url" name="longUrl" placeholder="Enter your long URL" required>
+                <button type="submit">Shorten</button>
+            </form>
+
+            <% if (shortUrl) { %>
+                <div class="result-container">
+                    <p class="message">Your shortened URL:</p>
+                    <a href="<%= shortUrl %>" class="short-url" target="_blank">
+                        <%= shortUrl %>
+                    </a>
+                    <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">Copy</button>
                 </div>
-            </div>
-        </form>
+                <% } %>
+        </main>
 
-        <% if (shortUrl) { %>
-            <div class="result-container">
-                <p class="message">Your shortened URL is ready to share:</p>
-                <a href="<%= shortUrl %>" class="short-url" target="_blank">
-                    <%= shortUrl %>
-                </a>
-                <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">
-                    <i class="far fa-copy"></i> Copy
-                </button>
-            </div>
-            <% } %>
-    </div>
+        <%- include('partials/footer') %>
 
-    <footer>
-        <p>Shortly - Making links shorter</p>
-        <div class="copyright">
-            <p>&copy; 2025 Shortly. All rights reserved.</p>
-        </div>
-    </footer>
+            <script>
+                function copyToClipboard(text) {
+                    navigator.clipboard.writeText(text)
+                        .then(() => alert('URL copied to clipboard!'))
+                        .catch(err => console.error('Copy failed:', err));
+                }
+            </script>
 
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    const copyBtn = document.querySelector('.copy-btn');
-                    copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    copyBtn.style.background = '#00ad51';
-                    copyBtn.style.color = 'white';
-
-                    setTimeout(() => {
-                        copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy';
-                        copyBtn.style.background = '#e9f7f0';
-                        copyBtn.style.color = '#00ad51';
-                    }, 2000);
-                })
-                .catch(err => console.error('Copy failed:', err));
-        }
-    </script>
 </body>
 
 </html>

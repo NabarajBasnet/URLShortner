@@ -17,7 +17,6 @@ app.post('/shorten', async (req, res) => {
     const shortId = nanoid(6);
     const shortUrl = `${req.protocol}://${req.get('host')}/${shortId}`;
 
-
     res.render('success', { shortUrl: shortUrl });
     console.log("Short URL: ", shortUrl);
 
