@@ -4,28 +4,76 @@
 <head>
     <meta charset="UTF-8">
     <title>Shortly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-
     <%- include('partials/header') %>
 
-        <main>
-            <form action="/shorten" method="POST">
-                <input type="url" name="longUrl" placeholder="Enter your long URL" required>
-                <button type="submit">Shorten</button>
-            </form>
+        <main class="container">
 
-            <% if (shortUrl) { %>
-                <div class="result-container">
-                    <p class="message">Your shortened URL:</p>
-                    <a href="<%= shortUrl %>" class="short-url" target="_blank">
-                        <%= shortUrl %>
-                    </a>
-                    <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">Copy</button>
+            <!-- 🌟 HERO SECTION -->
+            <section class="hero" style="text-align: center; padding: 3rem 1rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Simplify Your Links with Shortly</h1>
+                <p style="font-size: 1.1rem; color: #555;">Create short, shareable links in seconds. Track clicks, set
+                    expiry, and much more — for free!</p>
+            </section>
+
+            <!-- 🔗 FORM SECTION -->
+            <section class="form-section" style="margin-top: 2rem;">
+                <form action="/shorten" method="POST"
+                    style='display: flex; justify-content: center; align-items: center;'>
+
+                    <input type="url" name="longUrl" placeholder="Enter your long URL" required style="padding: 0.75rem; font-size: 1rem; 
+                   width: 100%;
+                    border-radius: 8px;
+                    border: 1px solid #ccc;">
+
+                    <button type="submit" style=" padding: 0.75rem; font-size: 1rem; background-color: #1e90ff; color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;">Shorten</button>
+                </form>
+
+                <% if (shortUrl) { %>
+                    <div class="result-container" style="margin-top: 2rem; text-align: center;">
+                        <p class="message">Your shortened URL:</p>
+                        <a href="<%= shortUrl %>" class="short-url" target="_blank"
+                            style="display: block; margin: 1rem 0; font-weight: bold;">
+                            <%= shortUrl %>
+                        </a>
+                        <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">Copy</button>
+                    </div>
+                    <% } %>
+            </section>
+
+            <!-- 📦 FEATURE CARDS -->
+            <section class="feature-cards" style="margin-top: 4rem;">
+                <div class="card">
+                    <h2>📉 Track Clicks</h2>
+                    <p>Monitor how many people click your shortened links.</p>
                 </div>
-                <% } %>
+                <div class="card">
+                    <h2>⏳ Expiry Control</h2>
+                    <p>All links expire in 5 months — safe and temporary.</p>
+                </div>
+                <div class="card">
+                    <h2>⚡ Fast & Free</h2>
+                    <p>Get your short link instantly, share and save for free.</p>
+                </div>
+            </section>
+
+            <!-- ℹ️ BOTTOM INFO SECTION -->
+            <section class="info-section" style="margin-top: 5rem; text-align: center; padding: 2rem;">
+                <h2 style="margin-bottom: 1rem;">Why use Shortly?</h2>
+                <p style="max-width: 700px; margin: 0 auto; color: #666;">
+                    Whether you're a student, business owner, or social media influencer, shortening URLs helps you
+                    simplify sharing and tracking. Our service is fast, reliable, and offers essential features without
+                    clutter.
+                </p>
+            </section>
+
         </main>
 
         <%- include('partials/footer') %>
@@ -37,7 +85,6 @@
                         .catch(err => console.error('Copy failed:', err));
                 }
             </script>
-
 </body>
 
 </html>

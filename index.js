@@ -22,6 +22,21 @@ app.post('/shorten', async (req, res) => {
 
 });
 
+app.get('/aboutus', (req, res) => {
+    res.render('aboutus');
+});
+
+app.get('/contactus', (req, res) => {
+    res.render('contactus');
+});
+
+app.post('/contactus', (req, res) => {
+    const { name, email, message } = req.body;
+    console.log("Contact Form Submitted:", name, email, message);
+    res.send("Thank you for reaching out! We’ll get back to you soon.");
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server listening at port ${PORT}`);
 });
