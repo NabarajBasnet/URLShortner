@@ -13,28 +13,42 @@
 
         <main class="container">
 
-            <!-- 🌟 HERO SECTION -->
-            <section class="hero" style="text-align: center; padding: 3rem 1rem;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Simplify Your Links with Shortly</h1>
-                <p style="font-size: 1.1rem; color: #555;">Create short, shareable links in seconds. Track clicks, set
+            <!-- HERO SECTION -->
+            <section class="hero" style="text-align: center; margin-top: 2rem; padding: 3rem 1rem; background-color:  #1e90ff; color: white; border-bottom-right-radius: 2rem; 
+            border-bottom-left-radius: 2rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Simplify Your Links with Shortly
+                </h1>
+                <p style="font-size: small; font-weight: 600; color: white">Create short, shareable links in seconds.
+                    Track clicks, set
                     expiry, and much more — for free!</p>
             </section>
 
-            <!-- 🔗 FORM SECTION -->
+            <!-- FORM SECTION -->
             <section class="form-section" style="margin-top: 2rem;">
-                <form action="/shorten" method="POST"
-                    style='display: flex; justify-content: center; align-items: center;'>
+                <div style="padding: 8rem;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    border-radius: 1rem;">
+                    <form action="/shorten" method="POST" style='
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border: 1px solid gray;'>
 
-                    <input type="url" name="longUrl" placeholder="Enter your long URL" required style="padding: 0.75rem; font-size: 1rem; 
-                   width: 100%;
-                    border-radius: 8px;
-                    border: 1px solid #ccc;">
+                        <input type="url" name="longUrl" placeholder="Enter your long URL" required style="
+                            padding: 0.75rem; font-size: 1rem; 
+                            width: 100%;
+                            border-radius: 4px;
+                            outline: none;
+                            border: none;
+                            background-color: transparent
+                    ">
 
-                    <button type="submit" style=" padding: 0.75rem; font-size: 1rem; background-color: #1e90ff; color: white;
-                    border: none;
-                    border-radius: 8px;
-                    cursor: pointer;">Shorten</button>
-                </form>
+                        <button type="submit" style="
+                            padding: 1rem; font-size: 1rem; background-color: #1e90ff; color: white;
+                            border: none;
+                            cursor: pointer;">Shorten</button>
+                    </form>
+                </div>
 
                 <% if (shortUrl) { %>
                     <div class="result-container" style="margin-top: 2rem; text-align: center;">
@@ -48,24 +62,31 @@
                     <% } %>
             </section>
 
-            <!-- 📦 FEATURE CARDS -->
+            <!-- FEATURE CARDS -->
             <section class="feature-cards" style="margin-top: 4rem;">
-                <div class="card">
-                    <h2>📉 Track Clicks</h2>
-                    <p>Monitor how many people click your shortened links.</p>
+                <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)">
+                    <h2 style="color: white; font-weight: 800">📉 Track Clicks</h2>
+                    <p style="font-size: small; font-weight: 700; color: white; margin-top: 2rem;">Monitor how many
+                        people click your
+                        shortened links.</p>
                 </div>
-                <div class="card">
-                    <h2>⏳ Expiry Control</h2>
-                    <p>All links expire in 5 months — safe and temporary.</p>
+                <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)">
+                    <h2 style="color: white; font-weight: 800">⏳ Expiry Control</h2>
+                    <p style="font-size: small; font-weight: 700; color: white; margin-top: 2rem;">All links expire in 5
+                        months — safe and
+                        temporary.</p>
                 </div>
-                <div class="card">
-                    <h2>⚡ Fast & Free</h2>
-                    <p>Get your short link instantly, share and save for free.</p>
+                <div class="card" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)">
+                    <h2 style="color: white; font-weight: 800;">⚡ Fast & Free</h2>
+                    <p style="font-size: small; font-weight: 700; color: white; margin-top: 2rem;">Get your short link
+                        instantly, share
+                        and save for free.</p>
                 </div>
             </section>
 
-            <!-- ℹ️ BOTTOM INFO SECTION -->
-            <section class="info-section" style="margin-top: 5rem; text-align: center; padding: 2rem;">
+            <!-- BOTTOM INFO SECTION -->
+            <section class="info-section" style="margin-top: 5rem; text-align: center; padding: 2rem; margin-bottom: 1rem; 
+         border-radius: 0.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
                 <h2 style="margin-bottom: 1rem;">Why use Shortly?</h2>
                 <p style="max-width: 700px; margin: 0 auto; color: #666;">
                     Whether you're a student, business owner, or social media influencer, shortening URLs helps you
