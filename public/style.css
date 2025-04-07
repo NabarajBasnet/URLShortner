@@ -40,10 +40,11 @@ body {
 }
 
 .copy-btn {
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
     background-color: #28a745;
     color: white;
     border: none;
+    font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
 }
