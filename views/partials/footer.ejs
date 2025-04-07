@@ -1,22 +1,62 @@
-<footer style="width: 100%; background-color: #1f1f1f; color: #fff; padding: 2rem 1rem; position: relative; bottom: 0;">
-    <div style=" margin: 0 auto; text-align: center;">
+<footer
+    style="width: 100%; background-color: #111111; color: #ffffff; padding: 2rem 1rem; font-family: 'Segoe UI', Arial, sans-serif; border-top: 1px solid #2a2a2a;">
+    <div
+        style="max-width: 100%; padding-right: 2rem;  padding-left: 2rem; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
 
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-            <strong>Shortly</strong> — Simplify your links, track clicks, and share anywhere.
-        </p>
+        <!-- Company Info -->
+        <div style="flex: 1 1 300px; margin-bottom: 2rem;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff; font-weight: 700;">Shortly</h3>
+            <p style="color: #888; line-height: 1.6; margin-bottom: 1.5rem;">
+                Transforming long links into powerful, actionable short URLs. Enterprise-grade analytics and management
+                for modern teams.
+            </p>
+            <div style="display: flex; gap: 1rem;">
+                <a href="#" style="color: #888; transition: color 0.3s;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M22 4.01C21 4.5 20.02 4.72 19 5C17.879 3.735 16.217 3.665 14.62 4.263C13.023 4.861 12 6.283 12 7.857V9.5C9 9.5 6 8 4 4.5C4 4.5 0 11.5 9 15.5C6.5 17.5 4 17.5 2 16.5C4 19 7.5 20.5 11.5 20.5C17.5 20.5 21.5 14.5 21.5 9C21.5 8.31 21.41 7.63 21.24 7C22.27 6.07 23 4.97 23 3.72C23 3.04 22.63 2.44 22 2.09L22 4.01Z"
+                            fill="currentColor" />
+                    </svg>
+                </a>
+            </div>
+        </div>
 
-        <nav style="margin-bottom: 1rem;">
-            <a href="/" style="margin: 0 12px; text-decoration: none; color: #bbb;">Home</a>
-            <a href="/features" style="margin: 0 12px; text-decoration: none; color: #bbb;">Features</a>
-            <a href="/aboutus" style="margin: 0 12px; text-decoration: none; color: #bbb;">About</a>
-            <a href="/contactus" style="margin: 0 12px; text-decoration: none; color: #bbb;">Contact</a>
-            <a href="/privacy" style="margin: 0 12px; text-decoration: none; color: #bbb;">Privacy</a>
-            <a href="/terms" style="margin: 0 12px; text-decoration: none; color: #bbb;">Terms</a>
-        </nav>
+        <!-- Links Columns -->
+        <div style="display: flex; flex-wrap: wrap;">
+            <div style="flex: 1 1 150px;">
+                <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Company</h4>
+                <nav style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="/aboutus" style="color: #888; text-decoration: none; transition: color 0.3s;">About Us</a>
+                    <a href="/contactus" style="color: #888; text-decoration: none; transition: color 0.3s;">Contact
+                        Us</a>
+                </nav>
+            </div>
 
-        <div style="font-size: 0.9rem; color: #999;">
-            <p>&copy; <%= new Date().getFullYear() %> Shortly. All rights reserved.</p>
-            <p>Made with ❤️ by <strong>Nabaraj Basnet</strong></p>
+            <div style="flex: 1 1 150px; margin-top: 2rem;">
+                <h4 style="color: #fff; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">Legal</h4>
+                <nav style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <a href="/privacy" style="color: #888; text-decoration: none; transition: color 0.3s;">Privacy</a>
+                    <a href="/terms" style="color: #888; text-decoration: none; transition: color 0.3s;">Terms</a>
+                    <a href="/security" style="color: #888; text-decoration: none; transition: color 0.3s;">Security</a>
+                </nav>
+            </div>
         </div>
     </div>
+
+    <!-- Copyright Section -->
+    <div style="max-width: 100%; margin: 3rem auto 0; border-top: 1px solid #2a2a2a; padding: 2rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div style="color: #666; font-size: 0.9rem;">
+                © <span id="year"></span> Shortly Technologies, Inc. All rights reserved.
+            </div>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/status" style="color: #666; text-decoration: none; font-size: 0.9rem;">System Status</a>
+                <a href="/cookies" style="color: #666; text-decoration: none; font-size: 0.9rem;">Cookies</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </footer>

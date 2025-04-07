@@ -36,6 +36,17 @@ app.post('/contactus', (req, res) => {
     res.send("Thank you for reaching out! We’ll get back to you soon.");
 });
 
+app.get('/privacy', (req, res) => {
+    res.render('privacy');
+});
+
+app.get('/terms', (req, res) => {
+    res.render('terms');
+});
+
+app.get('/security', (req, res) => {
+    res.render('security');
+});
 
 app.listen(PORT, () => {
     console.log(`Server listening at port ${PORT}`);
