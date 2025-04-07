@@ -48,6 +48,29 @@ app.get('/security', (req, res) => {
     res.render('security');
 });
 
+app.get('/clickcount', (req, res) => {
+    res.render('clickcount');
+});
+
+let urls = [
+    {
+      shortId: 'abc123',
+      originalUrl: 'https://example.com',
+      shortUrl: 'http://localhost:3000/abc123',
+      clicks: 5
+    },
+    {
+      shortId: 'xyz789',
+      originalUrl: 'https://github.com',
+      shortUrl: 'http://localhost:3000/xyz789',
+      clicks: 2
+    }
+  ];
+  
+  app.get('/stats', (req, res) => {
+    res.render('stats', { urls });
+  });
+
 app.listen(PORT, () => {
     console.log(`Server listening at port ${PORT}`);
 });
