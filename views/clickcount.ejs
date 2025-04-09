@@ -3,45 +3,301 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Click Count - Shortly</title>
+    <title>Click Analytics - Shortly</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Analytics Page Styles */
+        .analytics-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .analytics-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .analytics-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .analytics-subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .analytics-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            z-index: 1;
+        }
+
+        .analytics-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .analytics-input:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+
+        .analytics-button {
+            padding: 1rem 2rem;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .analytics-button:hover {
+            background: #3182ce;
+        }
+
+        /* Results Styling */
+        .results-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .result-item {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .result-item label {
+            display: block;
+            color: #718096;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .result-icon {
+            margin-right: 0.5rem;
+            color: #718096;
+        }
+
+        .short-url {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-button {
+            background: none;
+            border: none;
+            color: #4299e1;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .copy-button:hover {
+            color: #3182ce;
+        }
+
+        .metric-box {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            display: block;
+        }
+
+        .metric-label {
+            color: #718096;
+            font-size: 0.875rem;
+        }
+
+        .error-card {
+            background: #fff5f5;
+            color: #c53030;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #fed7d7;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .error-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .truncate {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 768px) {
+            .input-group {
+                flex-direction: column;
+            }
+
+            .analytics-button {
+                justify-content: center;
+            }
+
+            .metric-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <%- include('partials/header') %>
 
-        <main class="container" style="padding: 2rem 1rem;">
-            <section style="text-align: center; margin-bottom: 2rem;">
-                <h1>Count Clicks Of Shorted Links</h1>
-                <p>Count clicks of your shorted links effortlessly for free.</p>
+        <main class="container analytics-container">
+            <section class="analytics-header">
+                <h1 class="analytics-title">Short Link Analytics</h1>
+                <p class="analytics-subtitle">Track your shortened URL performance with detailed click analytics</p>
             </section>
 
-            <section
-                style="width: 100%; margin: 0 auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); padding: 2rem; border-radius: 1rem;">
-                <form action="/shortedUrl" method="POST"
-                    style="width: 100%; display: flex; flex-direction: row; gap: 1rem;">
-                    <input type="url" name="shortedUrl" placeholder="Your Name" required
-                        style="width: 100%; padding: 0.8rem; border: solid 1px gray;outline: none; border-radius: 3px;">
-                    <button type="submit"
-                        style="padding: 0.75rem; color: white; cursor: pointer; border: none; border-radius: 3px; background-color: rgb(13, 112, 252); font-weight: bold;">Submit</button>
+            <section class="analytics-card">
+                <form action="/shortedUrl" method="POST" class="analytics-form">
+                    <div class="input-group">
+                        <i class="fas fa-link input-icon"></i>
+                        <input type="url" name="shortedUrl" placeholder="Paste your shortened URL here" required
+                            class="analytics-input">
+                        <button type="submit" class="analytics-button">
+                            Analyze
+                            <i class="fas fa-chart-line button-icon"></i>
+                        </button>
+                    </div>
                 </form>
             </section>
 
-                <% if (data) { %>
-                    <section style="margin-top: 2rem; text-align: center;">
-                        <h2>Result Found:</h2>
-                        <p><strong>Original URL:</strong> <a href="<%= data.longUrl %>" target="_blank"><%= data.longUrl %></a></p>
-                        <p><strong>Short URL:</strong> <%= data.shortUrl %></p>
-                        <p><strong>Clicks:</strong> <%= data.clicks %></p>
-                        <p><strong>Expires At:</strong> <%= new Date(data.expiresAt).toLocaleString() %></p>
-                    </section>
+            <% if (data) { %>
+                <section class="results-card">
+                    <div class="results-header">
+                        <h2>Analytics Report</h2>
+                        <span class="badge badge-success">Active</span>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <label><i class="fas fa-long-arrow-alt-right result-icon"></i> Original URL</label>
+                            <a href="<%= data.longUrl %>" target="_blank" class="truncate">
+                                <%= data.longUrl %>
+                            </a>
+                        </div>
+
+                        <div class="result-item">
+                            <label><i class="fas fa-link result-icon"></i> Short URL</label>
+                            <div class="short-url">
+                                <span>
+                                    <%= data.shortUrl %>
+                                </span>
+                                <button class="copy-button" data-clipboard-text="<%= data.shortUrl %>">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="metric-box">
+                            <div class="metric">
+                                <span class="metric-value">
+                                    <%= data.clicks %>
+                                </span>
+                                <span class="metric-label">Total Clicks</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">
+                                    <%= new Date(data.expiresAt).toLocaleDateString() %>
+                                </span>
+                                <span class="metric-label">Expiration Date</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <% } else { %>
-                    <section style="margin-top: 2rem; text-align: center;">
-                        <p style="color: red; font-weight: bold;">No data found for the provided shortened URL.</p>
+                    <section class="error-card">
+                        <i class="fas fa-exclamation-circle error-icon"></i>
+                        <p>No analytics found for the provided URL. Please check and try again.</p>
                     </section>
-                <% } %>
-                            
+                    <% } %>
         </main>
 
         <%- include('partials/footer') %>

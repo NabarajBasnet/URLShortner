@@ -5,66 +5,181 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terms & Conditions | Shortly</title>
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        /* Terms & Conditions Styles */
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: white;
+            line-height: 1.6;
+        }
+
+        .terms-header {
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .terms-title {
+            font-size: 2.25rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .last-updated {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .terms-section {
+            margin: 2.5rem 0;
+        }
+
+        .terms-section h2 {
+            font-size: 1.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #1e90ff;
+            display: inline-block;
+        }
+
+        .terms-section p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .terms-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+            border-left: 3px solid #e2e8f0;
+        }
+
+        .terms-list li {
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 0.5rem;
+            background: #f8fafc;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .terms-list li:hover {
+            transform: translateX(5px);
+            background: #f1f5f9;
+        }
+
+        .contact-box {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #0b6cda;
+        }
+
+        @media (max-width: 768px) {
+            .terms-container {
+                padding: 2rem 1rem;
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .terms-title {
+                font-size: 1.75rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .terms-list li {
+                padding: 0.75rem;
+            }
+        }
+    </style>
 </head>
 
-<body style="margin: 0; font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333;">
-
+<body>
     <%- include('partials/header') %>
 
-        <div style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
-            <h1 style="font-size: 2rem; margin-bottom: 1rem;">Terms & Conditions</h1>
-            <p style="font-size: 1rem; margin-bottom: 1.5rem;">Last updated: April 7, 2025</p>
+        <main>
+            <div class="terms-container">
+                <div class="terms-header">
+                    <h1 class="terms-title">Terms & Conditions</h1>
+                    <p class="last-updated">Last updated: April 7, 2025</p>
+                    <p>Welcome to Shortly! Please read these Terms carefully before using our services.</p>
+                </div>
 
-            <p style="margin-bottom: 1rem;">
-                These Terms and Conditions ("Terms") govern your use of <strong>Shortly</strong>. By accessing or using
-                our
-                website, you agree to be bound by these Terms. If you do not agree with them, please do not use our
-                services.
-            </p>
+                <div class="terms-section">
+                    <h2>1. Use of Service</h2>
+                    <p>Shortly provides URL shortening services. You agree to use our platform responsibly and lawfully.
+                    </p>
+                    <ul class="terms-list">
+                        <li>No spamming or unsolicited messaging</li>
+                        <li>No harmful or illegal redirects</li>
+                        <li>Compliance with all applicable laws</li>
+                    </ul>
+                </div>
 
-            <h2 style="margin-top: 2rem;">1. Use of Service</h2>
-            <p>Shortly is a URL shortening service. You agree to use it only for lawful purposes and not for:</p>
-            <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
-                <li>Spamming or sending unsolicited messages</li>
-                <li>Redirecting to harmful, illegal, or misleading websites</li>
-                <li>Violating any applicable laws or regulations</li>
-            </ul>
+                <div class="terms-section">
+                    <h2>2. Account Responsibility</h2>
+                    <p>You are responsible for maintaining account security and all activities under your account.
+                        Promptly report any unauthorized access.</p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">2. Account Responsibility</h2>
-            <p>You are responsible for maintaining the confidentiality of your account information and for all
-                activities
-                under your account. If you suspect unauthorized use, notify us immediately.</p>
+                <div class="terms-section">
+                    <h2>3. Intellectual Property</h2>
+                    <p>All Shortly content and features are protected intellectual property. Unauthorized use or
+                        distribution is prohibited.</p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">3. Intellectual Property</h2>
-            <p>All content and features on Shortly (logos, text, software, etc.) are owned by us or our partners and are
-                protected by intellectual property laws. You may not copy or distribute them without permission.</p>
+                <div class="terms-section">
+                    <h2>4. Termination</h2>
+                    <p>We reserve the right to terminate access for Terms violations or service misuse without notice.
+                    </p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">4. Termination</h2>
-            <p>We reserve the right to suspend or terminate your access to Shortly at any time for violation of these
-                Terms
-                or misuse of the service.</p>
+                <div class="terms-section">
+                    <h2>5. Disclaimer</h2>
+                    <p>Services provided "as-is" without warranties. We don't guarantee uninterrupted service or link
+                        accuracy.</p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">5. Disclaimer</h2>
-            <p>Shortly is provided "as is" without warranties of any kind. We do not guarantee uptime, link accuracy, or
-                results from using the service.</p>
+                <div class="terms-section">
+                    <h2>6. Limitation of Liability</h2>
+                    <p>We're not liable for indirect, incidental, or consequential damages from service use.</p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">6. Limitation of Liability</h2>
-            <p>We are not liable for any indirect, incidental, or consequential damages arising from your use of
-                Shortly.
-            </p>
+                <div class="terms-section">
+                    <h2>7. Changes to Terms</h2>
+                    <p>Terms may be updated periodically. Continued use constitutes acceptance of revised Terms.</p>
+                </div>
 
-            <h2 style="margin-top: 2rem;">7. Changes to Terms</h2>
-            <p>We may update these Terms at any time. Continued use of Shortly means you accept the updated Terms.
-                Please
-                review them periodically.</p>
-
-            <h2 style="margin-top: 2rem;">8. Contact</h2>
-            <p>If you have any questions about these Terms, contact us at <a
-                    href="mailto:support@shortly.com">support@shortly.com</a>.</p>
-        </div>
+                <div class="terms-section">
+                    <h2>8. Contact</h2>
+                    <div class="contact-box">
+                        <p>Questions about these Terms? Contact our support team:</p>
+                        <a href="mailto:support@shortly.com" class="contact-link">support@shortly.com</a>
+                    </div>
+                </div>
+            </div>
+        </main>
 
         <%- include('partials/footer') %>
-
 </body>
 
 </html>

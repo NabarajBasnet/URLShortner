@@ -4,51 +4,200 @@
 <head>
     <meta charset="UTF-8">
     <title>About | Shortly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <style>
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .about-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #2d3748;
+            margin: 2.5rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1e90ff;
+            display: inline-block;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(10px);
+            background: #f1f5f9;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .tech-card strong {
+            color: #1e90ff;
+            font-size: 1.1rem;
+        }
+
+        .roadmap {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .creator-credit {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                padding: 2rem 1rem;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <%- include('partials/header') %>
 
-        <main style="padding-right: 10rem; padding-left: 10rem;padding-top: 3rem; padding-bottom: 3rem; margin: auto;">
-            <h1>About Shortly</h1>
+        <main class="about-container">
+            <div class="about-header">
+                <h1 class="about-title">About Shortly</h1>
+                <p class="about-intro">
+                    Shortly is a modern URL management platform designed to transform long, complex links into clean,
+                    trackable URLs. Perfect for social media, marketing campaigns, and any digital communication.
+                </p>
+            </div>
 
-            <p style="margin-top: 1rem; line-height: 1.6;">
-                <strong>Shortly</strong> is a simple and powerful URL shortening tool built to make your long and ugly
-                links more manageable and shareable.
-                Whether you’re sharing links on social media, in emails, or anywhere else — we make your links clean and
-                trackable.
-            </p>
-
-            <h2 style="margin-top: 2rem;">🚀 Why we built Shortly</h2>
-            <ul style="line-height: 1.8;">
-                <li>To simplify long and complex URLs</li>
-                <li>To provide expiry-based links for better control</li>
-                <li>To track click counts for basic analytics</li>
-                <li>To learn full-stack development and deployment with Node.js, Express, EJS & MongoDB</li>
+            <h2 class="section-title">Why We Built Shortly</h2>
+            <ul class="feature-list">
+                <li>
+                    <span>🚀</span>
+                    <div>
+                        <strong>Simplify URLs</strong>
+                        <p>Make long links memorable and shareable</p>
+                    </div>
+                </li>
+                <li>
+                    <span>🛡️</span>
+                    <div>
+                        <strong>Expiry Control</strong>
+                        <p>Automatic link expiration for better security</p>
+                    </div>
+                </li>
+                <li>
+                    <span>📈</span>
+                    <div>
+                        <strong>Basic Analytics</strong>
+                        <p>Track engagement with click-through rates</p>
+                    </div>
+                </li>
             </ul>
 
-            <h2 style="margin-top: 2rem;">🛠️ Technologies Used</h2>
-            <ul style="line-height: 1.8;">
-                <li><strong>Frontend:</strong> EJS (Embedded JavaScript Templates)</li>
-                <li><strong>Backend:</strong> Node.js with Express.js</li>
-                <li><strong>Database:</strong> MongoDB</li>
-                <li><strong>Deployment:</strong> Render / Railway / Vercel / etc.</li>
-            </ul>
+            <h2 class="section-title">Technology Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <strong>Frontend</strong>
+                    <p>EJS Templates<br>Vanilla CSS<br>Responsive Design</p>
+                </div>
+                <div class="tech-card">
+                    <strong>Backend</strong>
+                    <p>Node.js<br>Express.js<br>REST API</p>
+                </div>
+                <div class="tech-card">
+                    <strong>Database</strong>
+                    <p>MongoDB<br>Mongoose ODM<br>Local Database</p>
+                </div>
+                <div class="tech-card">
+                    <strong>Infrastructure</strong>
+                    <p>Render<br>Vercel<br></p>
+                </div>
+            </div>
 
-            <p style="margin-top: 2rem;">
-                We’re continuously improving Shortly. In the future, we plan to add user authentication, custom aliases,
-                more analytics, and better UI.
-            </p>
+            <div class="roadmap">
+                <h2 class="section-title">Future Vision</h2>
+                <p>Planned enhancements for Shortly:</p>
+                <ul class="feature-list">
+                    <li>User authentication system</li>
+                    <li>Custom URL aliases</li>
+                    <li>Advanced analytics dashboard</li>
+                    <li>Browser extension integration</li>
+                    <li>API access for developers</li>
+                </ul>
+            </div>
 
-            <p style="margin-top: 2rem; font-style: italic;">
-                Made with ❤️ by Nabaraj Basnet
-            </p>
+            <div class="creator-credit">
+                <p style="font-size: 1.1rem; color: #4a5568;">
+                    Crafted with ❤️ by Nabaraj Basnet<br>
+                    <small style="display: block; margin-top: 0.5rem; color: #718096;">
+                        Open source contributor & full-stack developer
+                    </small>
+                </p>
+                <div style="margin-top: 1rem;">
+                    <a href="https://github.com/yourusername" target="_blank"
+                        style="color: #1e90ff; text-decoration: none; font-weight: 500;">
+                        View on GitHub ↗
+                    </a>
+                </div>
+            </div>
         </main>
 
         <%- include('partials/footer') %>
-
 </body>
 
 </html>

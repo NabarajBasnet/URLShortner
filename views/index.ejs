@@ -53,17 +53,17 @@
                 <% if (shortUrl) { %>
                     <div class="result-container" style="margin-top: 2rem; text-align: center; padding: 2rem;">
                         <p class="message">Your shortened URL:</p>
-                
+
                         <div
                             style="display: flex; justify-content: center; align-items: center; border: 1px solid gray; border-radius: 3px;">
                             <input id="shortUrlInput" type="text" class="short-url" value="<%= shortUrl %>"
                                 style="display: block; border-radius: 3px; outline: none; border: none; font-weight: bold; text-align: center; width: 100%; background-color: transparent;" />
-                
+
                             <button onclick="copyToClipboard('<%= shortUrl %>')" class="copy-btn">Copy</button>
                         </div>
                     </div>
-                <% } %>
-                
+                    <% } %>
+
             </section>
 
             <!-- FEATURE CARDS -->
@@ -103,20 +103,20 @@
 
         <%- include('partials/footer') %>
 
-        <script>
-            function copyToClipboard(shortUrl) {
-                // Select the input field
-                const input = document.getElementById('shortUrlInput');
-                input.value = shortUrl;
-        
-                input.select();
-        
-                document.execCommand('copy');
-        
-                alert('Copied: ' + shortUrl);
-            }
-        </script>
-        
+            <script>
+                function copyToClipboard(shortUrl) {
+                    // Select the input field
+                    const input = document.getElementById('shortUrlInput');
+                    input.value = shortUrl;
+
+                    input.select();
+
+                    document.execCommand('copy');
+
+                    alert('Copied: ' + shortUrl);
+                }
+            </script>
+
 </body>
 
 </html>
