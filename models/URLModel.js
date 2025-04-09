@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 
 const URLSchema = new mongoose.Schema({
-    longUrl: { type: String, required: true },
-    shortId: { type: String, required: true, unique: true },
-    createdAt: { type: Date, default: Date.now },
-    expiresAt: { type: Date, required: true },
-    clickCount: { type: Number, default: 0 }
+    longUrl: String,
+    shortUrl: String,
+    shortId: String,
+    expiresAt: Date,
+    clicks: {
+        type: Number,
+        default: 0
+    }
 },
     { timestamps: true }
 );

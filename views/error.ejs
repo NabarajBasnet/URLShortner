@@ -3,15 +3,21 @@
 
 <head>
     <title>Error</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
+    
+    <%- include('partials/header') %>
+
     <h2>Error</h2>
     <p>
         <%= message %>
     </p>
     <a href="/">Go back</a>
+
+    <%- include('partials/footer') %>
+
 </body>
 
 </html>

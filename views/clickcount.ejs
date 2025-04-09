@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Click Count - Shortly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main class="container" style="padding: 2rem 1rem;">
+            <section style="text-align: center; margin-bottom: 2rem;">
+                <h1>Count Clicks Of Shorted Links</h1>
+                <p>Count clicks of your shorted links effortlessly for free.</p>
+            </section>
+
+            <section
+                style="width: 100%; margin: 0 auto; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); padding: 2rem; border-radius: 1rem;">
+                <form action="/shortedUrl" method="POST"
+                    style="width: 100%; display: flex; flex-direction: row; gap: 1rem;">
+                    <input type="url" name="shortedUrl" placeholder="Your Name" required
+                        style="width: 100%; padding: 0.8rem; border: solid 1px gray;outline: none; border-radius: 3px;">
+                    <button type="submit"
+                        style="padding: 0.75rem; color: white; cursor: pointer; border: none; border-radius: 3px; background-color: rgb(13, 112, 252); font-weight: bold;">Submit</button>
+                </form>
+            </section>
+
+                <% if (data) { %>
+                    <section style="margin-top: 2rem; text-align: center;">
+                        <h2>Result Found:</h2>
+                        <p><strong>Original URL:</strong> <a href="<%= data.longUrl %>" target="_blank"><%= data.longUrl %></a></p>
+                        <p><strong>Short URL:</strong> <%= data.shortUrl %></p>
+                        <p><strong>Clicks:</strong> <%= data.clicks %></p>
+                        <p><strong>Expires At:</strong> <%= new Date(data.expiresAt).toLocaleString() %></p>
+                    </section>
+                <% } else { %>
+                    <section style="margin-top: 2rem; text-align: center;">
+                        <p style="color: red; font-weight: bold;">No data found for the provided shortened URL.</p>
+                    </section>
+                <% } %>
+                            
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>
